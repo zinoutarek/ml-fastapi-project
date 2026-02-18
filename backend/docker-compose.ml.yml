@@ -1,0 +1,61 @@
+# Production Docker Compose Configuration for ML Model
+# Supports CPU and GPU inference
+
+version: "3.9"
+
+services:
+  # CPU-based inference (default)
+  ml-api-cpu:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+      args:
+        PRETRAIN_MODEL: "1"  # Pre-train model at build time
+    environment:
+      - ONNXRUNTIME_EXECUTION_PROVIDERS=CPUExecutionProvider
+      - LOG_LEVEL=info
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/predict/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped
+
+  # GPU-based inference (CUDA)
+  # Uncomment and configure for GPU support
+  # ml-api-gpu:
+  #   build:
+  #     context: .
+  #     dockerfile: backend/Dockerfile.gpu
+  #     args:
+  #       PRETRAIN_MODEL: "1"
+  #   environment:
+  #     - ONNXRUNTIME_EXECUTION_PROVIDERS=CUDAExecutionProvider,CPUExecutionProvider
+  #     - CUDA_VISIBLE_DEVICES=0
+  #   runtime: nvidia
+  #   ports:
+  #     - "8000:8000"
+  #   healthcheck:
+  #     test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/predict/health"]
+  #     interval: 30s
+  #     timeout: 10s
+  #     retries: 3
+  #   restart: unless-stopped
+
+  # Monitoring (optional)
+  # prometheus:
+  #   image: prom/prometheus:latest
+  #   volumes:
+  #     - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+  #   ports:
+  #     - "9090:9090"
+  #
+  # grafana:
+  #   image: grafana/grafana:latest
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - prometheus
