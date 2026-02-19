@@ -28,23 +28,27 @@
 
 ### Dashboard Login
 
-[![API docs](img/login.png)](https://github.com/fastapi/full-stack-fastapi-template)
+<img width="1020" height="545" alt="image" src="https://github.com/user-attachments/assets/8473b10b-8b97-438b-93a4-2dcc08989844" />
 
 ### Dashboard - Admin
 
-[![API docs](img/dashboard.png)](https://github.com/fastapi/full-stack-fastapi-template)
+<img width="1031" height="549" alt="image" src="https://github.com/user-attachments/assets/2d192a5e-2c7d-452e-a0cd-eab2a52272ea" />
+
 
 ### Dashboard - Items
 
-[![API docs](img/dashboard-items.png)](https://github.com/fastapi/full-stack-fastapi-template)
+<img width="1026" height="529" alt="image" src="https://github.com/user-attachments/assets/6bde62ad-3c94-41c6-acc5-cea8691e64ed" />
+
 
 ### Dashboard - Dark Mode
 
-[![API docs](img/dashboard-dark.png)](https://github.com/fastapi/full-stack-fastapi-template)
+<img width="1030" height="553" alt="image" src="https://github.com/user-attachments/assets/220e6378-74f7-48ae-9db1-44d8568709db" />
+
 
 ### Interactive API Documentation
 
-[![API docs](img/docs.png)](https://github.com/fastapi/full-stack-fastapi-template)
+<img width="929" height="775" alt="image" src="https://github.com/user-attachments/assets/19434d9c-d926-4b50-8c26-002fcb5d2275" />
+
 
 ## How To Use It
 
